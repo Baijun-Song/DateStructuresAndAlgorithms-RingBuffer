@@ -1,54 +1,69 @@
 public struct RingBuffer<Element> {
-  var _storage: [Element?]
-  var _popIndex = 0
-  var _pushIndex = 0
+  @usableFromInline
+  var storage: [Element?]
   
+  @usableFromInline
+  var popIndex = 0
+  
+  @usableFromInline
+  var pushIndex = 0
+  
+  @inlinable @inline(__always)
   public init(capacity: Int) {
-    _storage = Array(repeating: nil, count: capacity)
+    storage = Array(repeating: nil, count: capacity)
   }
 }
 
 extension RingBuffer {
+  @inlinable @inline(__always)
   public var count: Int {
-    _pushIndex - _popIndex
+    pushIndex - popIndex
   }
   
+  @inlinable @inline(__always)
   public var capacity: Int {
-    _storage.count
+    storage.count
   }
   
+  @inlinable @inline(__always)
   public var isEmpty: Bool {
     count == 0
   }
   
+  @inlinable @inline(__always)
   public var isFull: Bool {
     count >= capacity
   }
   
+  @inlinable @inline(__always)
   public var start: Element? {
-    isEmpty ? nil : _storage[wrapped: _pushIndex - 1]
+    isEmpty ? nil : storage[wrapped: pushIndex - 1]
   }
   
+  @inlinable @inline(__always)
   public var end: Element? {
-    isEmpty ? nil : _storage[wrapped: _popIndex]
+    isEmpty ? nil : storage[wrapped: popIndex]
   }
   
+  @inlinable @inline(__always)
   public mutating func write(_ newElement: Element) {
     precondition(!isFull)
-    _storage[wrapped: _pushIndex] = newElement
-    _pushIndex += 1
+    storage[wrapped: pushIndex] = newElement
+    pushIndex += 1
   }
   
+  @inlinable
   public mutating func read() -> Element? {
     guard !isEmpty else {
       return nil
     }
-    let removedElement = _storage[wrapped: _popIndex]
-    _popIndex += 1
-    _resetIndex()
+    let removedElement = storage[wrapped: popIndex]
+    popIndex += 1
+    resetIndex()
     return removedElement
   }
   
+  @inlinable
   @discardableResult
   public mutating func resize(to newCapacity: Int) -> Bool {
     let count = count
@@ -58,11 +73,11 @@ extension RingBuffer {
     var newStorage: [Element?] = []
     newStorage.reserveCapacity(newCapacity)
     for i in 0..<count {
-      newStorage[i] = _storage[wrapped: _popIndex + i]
+      newStorage[i] = storage[wrapped: popIndex + i]
     }
-    _storage = newStorage
-    _popIndex = 0
-    _pushIndex = count
+    storage = newStorage
+    popIndex = 0
+    pushIndex = count
     return true
   }
 }

@@ -1,11 +1,12 @@
 extension RingBuffer: Sequence {
+  @inlinable
   public func makeIterator() -> some IteratorProtocol {
-    var currentIndex = _popIndex
+    var currentIndex = popIndex
     let iterator = AnyIterator {
-      if currentIndex < _pushIndex {
+      if currentIndex < pushIndex {
         let index = currentIndex
         currentIndex += 1
-        return _storage[wrapped: index]
+        return storage[wrapped: index]
       } else {
         return nil
       }

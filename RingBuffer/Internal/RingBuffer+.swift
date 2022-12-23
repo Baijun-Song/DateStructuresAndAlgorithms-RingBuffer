@@ -1,8 +1,9 @@
 extension RingBuffer {
-  mutating func _resetIndex() {
+  @inlinable @inline(__always)
+  mutating func resetIndex() {
     if isEmpty {
-      _pushIndex = 0
-      _popIndex = 0
+      pushIndex = 0
+      popIndex = 0
     }
   }
 }
