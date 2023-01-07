@@ -13,6 +13,7 @@
 		0B2B80E7290D379F00BCF031 /* RingBuffer+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2B80E6290D379F00BCF031 /* RingBuffer+Sequence.swift */; };
 		0BA7633629267A0F0080BF75 /* RingBuffer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7633529267A0F0080BF75 /* RingBuffer+.swift */; };
 		0BA7633829267A900080BF75 /* Array+WrappedIndexSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7633729267A900080BF75 /* Array+WrappedIndexSubscript.swift */; };
+		0BE677E1296720AA00DC3276 /* RingBuffer+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE677E0296720AA00DC3276 /* RingBuffer+Equatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		0B2B80E6290D379F00BCF031 /* RingBuffer+Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RingBuffer+Sequence.swift"; sourceTree = "<group>"; };
 		0BA7633529267A0F0080BF75 /* RingBuffer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RingBuffer+.swift"; sourceTree = "<group>"; };
 		0BA7633729267A900080BF75 /* Array+WrappedIndexSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+WrappedIndexSubscript.swift"; sourceTree = "<group>"; };
+		0BE677E0296720AA00DC3276 /* RingBuffer+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RingBuffer+Equatable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +68,9 @@
 			isa = PBXGroup;
 			children = (
 				0B2B80E2290D372C00BCF031 /* RingBuffer.swift */,
-				0B2B80E4290D376E00BCF031 /* RingBuffer+CustomStringConvertable.swift */,
+				0BE677E0296720AA00DC3276 /* RingBuffer+Equatable.swift */,
 				0B2B80E6290D379F00BCF031 /* RingBuffer+Sequence.swift */,
+				0B2B80E4290D376E00BCF031 /* RingBuffer+CustomStringConvertable.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			files = (
 				0B2B80E7290D379F00BCF031 /* RingBuffer+Sequence.swift in Sources */,
 				0BA7633629267A0F0080BF75 /* RingBuffer+.swift in Sources */,
+				0BE677E1296720AA00DC3276 /* RingBuffer+Equatable.swift in Sources */,
 				0B2B80E3290D372C00BCF031 /* RingBuffer.swift in Sources */,
 				0B2B80E5290D376E00BCF031 /* RingBuffer+CustomStringConvertable.swift in Sources */,
 				0BA7633829267A900080BF75 /* Array+WrappedIndexSubscript.swift in Sources */,

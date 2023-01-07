@@ -1,6 +1,6 @@
 extension RingBuffer: Sequence {
   @inlinable
-  public func makeIterator() -> some IteratorProtocol {
+  public func makeIterator() -> AnyIterator<Element> {
     var currentIndex = popIndex
     let iterator = AnyIterator {
       if currentIndex < pushIndex {
